@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Simple E-Commerce</title>
+</head>
+<body>
+    <header>
+        <h1>Simple E-Commerce</h1>
+    </header>
+    <section id="products"></section>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 300px;
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+
+
+<script>
+    
+document.addEventListener("DOMContentLoaded", function () {
+    const productsContainer = document.getElementById("products");
+
+    // Sample products data (replace with your data)
+    const products = [
+        { name: "A", price: 19.99 },
+        { name: "B", price: 29.99 },
+        { name: "C", price: 39.99 },
+        { name: "D", price: 19.99 },
+        { name: "E", price: 29.99 },
+        { name: "F", price: 39.99 },
+        
+
+    ];
+
+    // Render products
+    products.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.className = "product";
+        productCard.innerHTML = `
+            <h2>${product.name}</h2>
+            <p>Price: $${product.price.toFixed(2)}</p>
+            <button class="button" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+        `;
+        productsContainer.appendChild(productCard);
+    });
+});
+
+// Function to handle adding products to the cart (replace with your cart logic)
+function addToCart(productName, productPrice) {
+    alert(`Added ${productName} to cart. Price: $${productPrice.toFixed(2)}`);
+}
+
+    
+</script>
